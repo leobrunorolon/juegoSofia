@@ -1,0 +1,1 @@
+Buscar nuevas formas de mejorar el juego.

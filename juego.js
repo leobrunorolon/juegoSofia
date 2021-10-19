@@ -4,7 +4,7 @@ document.getElementById(`nubesDos`).addEventListener("click", restarVida);
 
 let puntos = 0;
 let tiempo = 60;
-let score = 30;
+let score = 20;
 let vidas = 3;
 let vidasTotal = 3;
 function sumarPuntos() {
@@ -15,7 +15,7 @@ function sumarPuntos() {
   document.getElementById(`unicornio`).style.marginTop = randnum + "px";
   document.getElementById(`unicornio`).style.marginLeft = randnumDos + "px";
 
-  if (puntos == 30) {
+  if (puntos == 20) {
     alert("Ganaste Sofia");
     tiempo = 60;
     puntos = 0;

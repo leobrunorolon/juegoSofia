@@ -1,0 +1,116 @@
+/* font-family: 'Alfa Slab One', cursive;
+font-family: 'Rampart One', cursive; */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: pink;
+  overflow: hidden;
+}
+.section__img1 {
+  background-image: url(img/fondo1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100vh;
+  display: flex;
+  gap: 20rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: "Rampart One", cursive;
+  font-weight: bold;
+  color: rgb(230, 165, 165);
+  font-size: 4rem;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  height: 3rem;
+  width: 10rem;
+  background-color: white;
+  border-radius: 2rem;
+}
+button a {
+  text-decoration: none;
+  font-family: "Alfa Slab One", cursive;
+  color: pink;
+  font-size: 20px;
+}
+
+button a:hover {
+  font-size: 25px;
+  color: #df5885;
+  transition-duration: 0.5s;
+}
+
+/* parte del juego */
+.section__img2 {
+  background-image: url(img/fondo2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100vh - 4rem);
+  background-color: pink;
+}
+#unicornio {
+  background-image: url(img/unicornio.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 140px;
+  width: 120px;
+  position: absolute;
+  transition: all 2s ease;
+  cursor: pointer;
+  /* background-color: black; */
+}
+#nubes {
+  background-image: url(img/nube.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 90px;
+  width: 100px;
+  position: absolute;
+  transition: all 1s ease;
+  cursor: pointer;
+  margin-top: 5rem;
+  margin-left: 10rem;
+  /* background-color: black; */
+}
+#nubesDos {
+  background-image: url(img/nube2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 90px;
+  width: 100px;
+  position: absolute;
+  transition: all 3s ease;
+  cursor: pointer;
+  margin-top: 10rem;
+  margin-left: 2rem;
+  /* background-color: red; */
+}
+.puntos {
+  height: 6rem;
+  background-color: #363636;
+  border-radius: 1rem;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  font-size: 18px;
+}
+
+.buttonDos {
+  height: 2rem;
+  width: 5rem;
+  position: absolute;
+  right: 8rem;
+}

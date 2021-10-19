@@ -29,7 +29,7 @@ h1 {
   font-size: 4rem;
 }
 
-button {
+.boton {
   border: none;
   cursor: pointer;
   height: 3rem;
@@ -37,14 +37,14 @@ button {
   background-color: white;
   border-radius: 2rem;
 }
-button a {
+.boton a {
   text-decoration: none;
   font-family: "Alfa Slab One", cursive;
   color: pink;
   font-size: 20px;
 }
 
-button a:hover {
+.boton a:hover {
   font-size: 25px;
   color: #df5885;
   transition-duration: 0.5s;
@@ -56,7 +56,8 @@ button a:hover {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: calc(100vh - 4rem);
+  height: 100vh;
+  width: 100vw;
   background-color: pink;
 }
 #unicornio {
@@ -102,15 +103,14 @@ button a:hover {
   border-radius: 1rem;
   display: flex;
   text-align: center;
+  align-items: center;
   justify-content: center;
   flex-direction: column;
   color: white;
   font-size: 18px;
 }
 
-.buttonDos {
+.botonDos {
   height: 2rem;
   width: 5rem;
-  position: absolute;
-  right: 8rem;
 }

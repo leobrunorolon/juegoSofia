@@ -1,3 +1,4 @@
+document.getElementById(`botonInicio`).addEventListener(`click`, reseteo);
 document.getElementById(`unicornio`).addEventListener("click", sumarPuntos);
 document.getElementById(`nubes`).addEventListener("click", restarVida);
 document.getElementById(`nubesDos`).addEventListener("click", restarVida);
@@ -5,19 +6,38 @@ document.getElementById(`nubesDos`).addEventListener("click", restarVida);
 const Corazones = 3;
 const PuntosReseteo = 0;
 let puntos = 0;
-let tiempo = 60;
+let tiempo = 61;
 let score = 20;
 let vidas = Corazones;
+let inicio = true;
+let movTime = null;
+let movNube = null;
+let movUni = null;
 
-let inicio = reseteo();
+function reseteo() {
+  tiempo = 61;
+  puntos = PuntosReseteo;
+  vidas = Corazones;
+  movNube = setInterval(movimientoNube, 2000);
+  movUni = setInterval(movimientoUnicornio, 7000);
+  restarTiempo();
+  scoreCorazon();
+  scorePuntos();
+  scoreTiempo();
+}
+function reseteoDos() {
+  tiempo = 61;
+  puntos = PuntosReseteo;
+  vidas--;
+  scoreCorazon();
+  scorePuntos();
+  scoreTiempo();
+}
 
 function sumarPuntos() {
   puntos++;
   scorePuntos();
-  randnum = Math.round(Math.random() * 450);
-  document.getElementById(`unicornio`).style.marginTop = randnum + "px";
-  randnumDos = Math.round(Math.random() * 500);
-  document.getElementById(`unicornio`).style.marginLeft = randnumDos + "px";
+  movimientoUnicornio();
 
   if (puntos == 20) {
     alert("Ganaste Sofia");
@@ -25,39 +45,46 @@ function sumarPuntos() {
   }
 }
 function restarTiempo() {
-  tiempo--;
-  document.getElementById("tiempo").innerHTML = `Tiempo: ${tiempo}`;
-  randnumTres = Math.round(Math.random() * 450);
-  document.getElementById(`nubes`).style.marginTop = randnumTres + "px";
-  randnumCuatro = Math.round(Math.random() * 500);
-  document.getElementById(`nubes`).style.marginLeft = randnumCuatro + "px";
-  randnumCinco = Math.round(Math.random() * 450);
-  document.getElementById(`nubesDos`).style.marginTop = randnumCinco + "px";
-  randnumSeis = Math.round(Math.random() * 500);
-  document.getElementById(`nubesDos`).style.marginLeft = randnumSeis + "px";
+  scoreTiempo();
   if (tiempo == 0) {
     alert(
-      "Te quedaste sin tiempo pierdes un corazon vuelve a intentarlo Sofia"
+      "Te quedaste sin tiempo, pierdes un corazon vuelve a intentarlo Sofia"
     );
     reseteoDos();
-  } else if (vidas == 0) {
-    alert("Te quedaste sin vida, vulve a intentarlo");
-    reseteo();
+  } else {
+    tiempo--;
+    movTime = setTimeout(restarTiempo, 1000);
   }
 }
-
-setInterval(restarTiempo, 1000);
 
 function restarVida() {
   vidas--;
   scoreCorazon();
   if (vidas == 0) {
-    alert("Te quedaste sin vida, vulve a intentarlo");
+    alert("Te quedaste sin vida, vuelve a intentarlo");
     reseteo();
   }
 }
 
 // funciones para simplificar el codigo
+
+function movimientoUnicornio() {
+  randnum = Math.round(Math.random() * 75);
+  document.getElementById(`unicornio`).style.marginTop = randnum + "vh";
+  randnumDos = Math.round(Math.random() * 85);
+  document.getElementById(`unicornio`).style.marginLeft = randnumDos + "vw";
+}
+function movimientoNube() {
+  randnumTres = Math.round(Math.random() * 75);
+  document.getElementById(`nubes`).style.marginTop = randnumTres + "vh";
+  randnumCuatro = Math.round(Math.random() * 90);
+  document.getElementById(`nubes`).style.marginLeft = randnumCuatro + "vw";
+  randnumCinco = Math.round(Math.random() * 75);
+  document.getElementById(`nubesDos`).style.marginTop = randnumCinco + "vh";
+  randnumSeis = Math.round(Math.random() * 90);
+  document.getElementById(`nubesDos`).style.marginLeft = randnumSeis + "vw";
+}
+
 function scoreCorazon() {
   document.getElementById(
     "vidas"
@@ -70,19 +97,4 @@ function scorePuntos() {
 
 function scoreTiempo() {
   document.getElementById("tiempo").innerHTML = `Tiempo: ${tiempo}`;
-}
-
-function reseteo() {
-  tiempo = 60;
-  puntos = PuntosReseteo;
-  vidas = Corazones;
-  scoreCorazon();
-  scorePuntos();
-}
-function reseteoDos() {
-  tiempo = 60;
-  puntos = PuntosReseteo;
-  vidas--;
-  scoreCorazon();
-  scorePuntos();
 }

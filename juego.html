@@ -11,6 +11,10 @@
       rel="stylesheet"
     />
     <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
@@ -29,34 +33,36 @@
     <link rel="stylesheet" href="style.css" />
     <title>Juego</title>
   </head>
-  <body>
+  <body class="section__juego">
     <div>
-      <audio
+      <!-- <audio
         autoplay
         loop
         src="audio/Tones and I - Dance Monkey (Lyrics) (192 kbps).mp3"
-      ></audio>
+      ></audio> -->
     </div>
-    <div class="container">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 section__opcion">
+          <button class="boton botonDos" id="botonInicio">Iniciar</button>
+          <div>Niveles</div>
+          <button class="boton botonDos"><a href="index.html">Salir</a></button>
+        </div>
+      </div>
       <div class="row puntos">
-        <div class="col-11">
+        <div class="col-12">
           <div id="puntos"></div>
           <div id="score"></div>
           <div id="tiempo"></div>
           <div id="vidas"></div>
         </div>
-        <div class="col-1">
-          <button class="boton botonDos"><a href="index.html">Salir</a></button>
-        </div>
       </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="container section__img2">
-            <div id="unicornio"></div>
-            <div class="nube" id="nubes"></div>
-            <div class="nube" id="nubesDos"></div>
-          </div>
-        </div>
+    </div>
+    <div class="container-fluid section__img2">
+      <div class="row section__pantalla">
+        <div id="unicornio"></div>
+        <div class="nube" id="nubes"></div>
+        <div class="nube" id="nubesDos"></div>
       </div>
     </div>
     <script

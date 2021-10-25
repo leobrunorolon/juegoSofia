@@ -1,13 +1,12 @@
 /* font-family: 'Alfa Slab One', cursive;
 font-family: 'Rampart One', cursive; */
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 body {
   background-color: pink;
-  overflow: hidden;
 }
 .section__img1 {
   background-image: url(img/fondo1.jpg);
@@ -36,6 +35,7 @@ h1 {
   width: 10rem;
   background-color: white;
   border-radius: 2rem;
+  display: block;
 }
 .boton a {
   text-decoration: none;
@@ -50,67 +50,97 @@ h1 {
   transition-duration: 0.5s;
 }
 
-/* parte del juego */
+/* juego */
+.section__juego {
+  font-family: "Press Start 2P", cursive;
+  color: whitesmoke;
+  overflow: hidden !important;
+}
 .section__img2 {
   background-image: url(img/fondo2.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 82vh;
   width: 100vw;
-  background-color: pink;
+  overflow: hidden !important;
+}
+.section__pantalla {
+  min-height: 100%;
+  min-width: 100%;
 }
 #unicornio {
   background-image: url(img/unicornio.png);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 140px;
-  width: 120px;
+  height: 9rem;
+  width: 7rem;
   position: absolute;
   transition: all 2s ease;
   cursor: pointer;
+  display: flex;
+  margin-top: 4rem;
+  margin-left: 6rem;
   /* background-color: black; */
 }
 #nubes {
   background-image: url(img/nube.png);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 90px;
-  width: 100px;
+  height: 6rem;
+  width: 8rem;
   position: absolute;
-  transition: all 1s ease;
+  transition: all 2s ease;
   cursor: pointer;
-  margin-top: 5rem;
-  margin-left: 10rem;
+  margin-top: 10rem;
+  margin-left: 6rem;
   /* background-color: black; */
 }
 #nubesDos {
   background-image: url(img/nube2.png);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 90px;
-  width: 100px;
+  height: 7rem;
+  width: 7rem;
   position: absolute;
   transition: all 3s ease;
   cursor: pointer;
-  margin-top: 10rem;
-  margin-left: 2rem;
+  margin-top: 18rem;
+  margin-left: 10rem;
   /* background-color: red; */
 }
 .puntos {
-  height: 6rem;
+  height: 10vh;
   background-color: #363636;
-  border-radius: 1rem;
   display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   color: white;
-  font-size: 18px;
+  font-size: 12px;
+}
+.section__opcion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+  background-color: #363636;
+  height: 8vh;
 }
 
 .botonDos {
-  height: 2rem;
-  width: 5rem;
+  height: 2.5rem;
+  width: 6rem;
+  text-decoration: none;
+  font-family: "Alfa Slab One", cursive;
+  color: pink;
+  font-size: 18px;
+}
+.botonDos:hover {
+  font-size: 25px;
+  color: #df5885;
+  transition-duration: 0.5s;
+  font-family: "Alfa Slab One", cursive;
+  font-size: 20px;
 }

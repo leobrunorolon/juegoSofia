@@ -1,15 +1,15 @@
-/* font-family: 'Alfa Slab One', cursive;
-font-family: 'Rampart One', cursive; */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  background-color: pink;
+  background-color: #fa8fb1;
 }
+
 .section__img1 {
-  background-image: url(img/fondo1.jpg);
+  background-image: url(../img/fondo1.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -24,7 +24,7 @@ body {
 h1 {
   font-family: "Rampart One", cursive;
   font-weight: bold;
-  color: rgb(230, 165, 165);
+  color: #f74780;
   font-size: 4rem;
 }
 
@@ -33,31 +33,33 @@ h1 {
   cursor: pointer;
   height: 3rem;
   width: 10rem;
-  background-color: white;
+  background-color: #f5f5f5;
   border-radius: 2rem;
   display: block;
 }
+
 .boton a {
   text-decoration: none;
   font-family: "Alfa Slab One", cursive;
-  color: pink;
+  color: #fa8fb1;
   font-size: 20px;
 }
 
 .boton a:hover {
   font-size: 25px;
-  color: #df5885;
+  color: #f74780;
   transition-duration: 0.5s;
 }
 
 /* juego */
 .section__juego {
   font-family: "Press Start 2P", cursive;
-  color: whitesmoke;
+  color: #f5f5f5;
   overflow: hidden !important;
 }
+
 .section__img2 {
-  background-image: url(img/fondo2.jpg);
+  background-image: url(../img/fondo2.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -65,12 +67,14 @@ h1 {
   width: 100vw;
   overflow: hidden !important;
 }
+
 .section__pantalla {
   min-height: 100%;
   min-width: 100%;
 }
+
 #unicornio {
-  background-image: url(img/unicornio.png);
+  background-image: url(../img/unicornio.png);
   background-repeat: no-repeat;
   background-size: cover;
   height: 9rem;
@@ -83,8 +87,9 @@ h1 {
   margin-left: 6rem;
   /* background-color: black; */
 }
+
 #nubes {
-  background-image: url(img/nube.png);
+  background-image: url(../img/nube.png);
   background-repeat: no-repeat;
   background-size: cover;
   height: 6rem;
@@ -96,8 +101,9 @@ h1 {
   margin-left: 6rem;
   /* background-color: black; */
 }
+
 #nubesDos {
-  background-image: url(img/nube2.png);
+  background-image: url(../img/nube2.png);
   background-repeat: no-repeat;
   background-size: cover;
   height: 7rem;
@@ -109,6 +115,7 @@ h1 {
   margin-left: 10rem;
   /* background-color: red; */
 }
+
 .puntos {
   height: 10vh;
   background-color: #363636;
@@ -120,6 +127,7 @@ h1 {
   color: white;
   font-size: 12px;
 }
+
 .section__opcion {
   display: flex;
   justify-content: space-between;
@@ -137,10 +145,56 @@ h1 {
   color: pink;
   font-size: 18px;
 }
+
 .botonDos:hover {
   font-size: 25px;
-  color: #df5885;
+  color: #f74780;
   transition-duration: 0.5s;
   font-family: "Alfa Slab One", cursive;
   font-size: 20px;
+}
+
+.section__popup--container {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: visible;
+}
+
+.active {
+  visibility: hidden;
+}
+
+.section__popup {
+  background-color: #f74780;
+  height: 12rem;
+  width: 20rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column-reverse;
+  box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.7);
+}
+
+.section__popup .boton {
+  margin: auto;
+}
+
+.section__popup h3 {
+  margin-top: 1rem;
+  font-size: 16px;
+}
+
+.section__popup p {
+  margin-top: 1rem;
+  font-size: 12px;
+  text-align: center;
 }

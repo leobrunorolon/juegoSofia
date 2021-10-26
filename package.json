@@ -1,0 +1,26 @@
+{
+  "name": "juegosofia",
+  "version": "1.0.0",
+  "description": "Buscar nuevas formas de mejorar el juego.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --include-path scss scss/style.scss css/style.css --output-style=expanded ",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leobrunorolon/juegoSofia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leobrunorolon/juegoSofia/issues"
+  },
+  "homepage": "https://github.com/leobrunorolon/juegoSofia#readme",
+  "devDependencies": {
+    "node-sass": "^6.0.1",
+    "nodemon": "^2.0.14"
+  }
+}

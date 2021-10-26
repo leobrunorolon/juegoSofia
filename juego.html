@@ -30,7 +30,7 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Juego</title>
   </head>
   <body class="section__juego">
@@ -44,7 +44,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 section__opcion">
-          <button class="boton botonDos" id="botonInicio">Iniciar</button>
+          <button class="boton botonDos">Niveles</button>
           <div>Niveles</div>
           <button class="boton botonDos"><a href="index.html">Salir</a></button>
         </div>
@@ -65,11 +65,16 @@
         <div class="nube" id="nubesDos"></div>
       </div>
     </div>
+    <div class="section__popup--container" id="popUp">
+      <div class="section__popup" id="textPop">
+        <button class="boton botonDos" id="botonInicio">Iniciar</button>
+      </div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
       integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
       crossorigin="anonymous"
     ></script>
-    <script src="juego.js"></script>
+    <script src="js/juego.js"></script>
   </body>
 </html>

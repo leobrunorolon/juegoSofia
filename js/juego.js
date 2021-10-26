@@ -1,12 +1,23 @@
-document.getElementById(`botonInicio`).addEventListener(`click`, reseteo);
+const botonInicio = document
+  .getElementById(`botonInicio`)
+  .addEventListener(`click`, reseteo);
 document.getElementById(`unicornio`).addEventListener("click", sumarPuntos);
 document.getElementById(`nubes`).addEventListener("click", restarVida);
 document.getElementById(`nubesDos`).addEventListener("click", restarVida);
+document.getElementById(`popUp`);
+const textoPop = document.getElementById(`textPop`);
+
+let subtitulo = document.createElement(`p`);
+subtitulo.textContent = `Haz click en Inicio para continuar`;
+textoPop.appendChild(subtitulo);
+let titulo = document.createElement(`h3`);
+titulo.textContent = `Bienvenido`;
+textoPop.appendChild(titulo);
 
 const Corazones = 3;
 const PuntosReseteo = 0;
 let puntos = 0;
-let tiempo = 61;
+let tiempo = 60;
 let score = 20;
 let vidas = Corazones;
 let inicio = true;
@@ -15,7 +26,8 @@ let movNube = null;
 let movUni = null;
 
 function reseteo() {
-  tiempo = 61;
+  inicioPopUp();
+  tiempo = 60;
   puntos = PuntosReseteo;
   vidas = Corazones;
   movNube = setInterval(movimientoNube, 2000);
@@ -26,9 +38,10 @@ function reseteo() {
   scoreTiempo();
 }
 function reseteoDos() {
-  tiempo = 61;
+  tiempo = 60;
   puntos = PuntosReseteo;
   vidas--;
+  stopPopUp();
   scoreCorazon();
   scorePuntos();
   scoreTiempo();
@@ -39,17 +52,21 @@ function sumarPuntos() {
   scorePuntos();
   movimientoUnicornio();
 
-  if (puntos == 20) {
-    alert("Ganaste Sofia");
-    reseteo();
+  if (puntos == 5) {
+    stopPopUp();
+    subtitulo.textContent = `Eres grandioso has click en Inicio para continuar`;
+    titulo.textContent = `Ganaste`;
+    reseteoDos();
+    vidas = Corazones;
   }
 }
 function restarTiempo() {
   scoreTiempo();
   if (tiempo == 0) {
-    alert(
-      "Te quedaste sin tiempo, pierdes un corazon vuelve a intentarlo Sofia"
-    );
+    reseteoDos();
+    subtitulo.textContent = `Te quedaste sin tiempo has click en Inicio para continuar`;
+    titulo.textContent = `Perdiste`;
+
     reseteoDos();
   } else {
     tiempo--;
@@ -61,8 +78,9 @@ function restarVida() {
   vidas--;
   scoreCorazon();
   if (vidas == 0) {
-    alert("Te quedaste sin vida, vuelve a intentarlo");
-    reseteo();
+    reseteoDos();
+    subtitulo.textContent = `Te quedaste sin corazones has click en Inicio para continuar`;
+    titulo.textContent = `Perdiste`;
   }
 }
 
@@ -97,4 +115,12 @@ function scorePuntos() {
 
 function scoreTiempo() {
   document.getElementById("tiempo").innerHTML = `Tiempo: ${tiempo}`;
+}
+
+function inicioPopUp() {
+  popUp.classList.add(`active`);
+}
+
+function stopPopUp() {
+  popUp.classList.remove(`active`);
 }

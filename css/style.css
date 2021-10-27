@@ -15,7 +15,7 @@ body {
   background-size: contain;
   height: 100vh;
   display: flex;
-  gap: 20rem;
+  gap: 16rem;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -49,6 +49,87 @@ h1 {
   font-size: 25px;
   color: #f74780;
   transition-duration: 0.5s;
+}
+
+/*section usuario*/
+.section__container--usuario {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Alfa Slab One", cursive;
+  gap: 2rem;
+}
+
+.section__container--usuario .section__usuario {
+  color: #f74780;
+}
+
+.section__container--usuario .section__usuario .section__label {
+  display: block;
+  cursor: pointer;
+}
+
+.section__container--usuario .section__usuario .section__container--input {
+  position: relative;
+}
+
+.section__container--usuario .section__usuario .section__container--input .section__input {
+  background-color: #f5f5f5;
+  border-radius: 0.5rem;
+  border: 3px solid transparent;
+  height: 3rem;
+  line-height: 2rem;
+  transition: 0.3s ease all;
+  text-align: center;
+}
+
+.section__container--usuario .section__usuario .section__container--input .section__input::placeholder {
+  color: #f74780;
+  font-weight: bold;
+}
+
+.section__container--usuario .section__usuario .section__container--input .section__input:focus {
+  border: 3px solid #f74780;
+  outline: none;
+}
+
+.section__container--usuario .section__usuario .section__container--input .section__input--icon {
+  position: absolute;
+  right: 0.3rem;
+  bottom: 1rem;
+  z-index: 5;
+  font-size: 16px;
+  opacity: 0;
+}
+
+.section__container--usuario .section__usuario .section__container--input .section__input--text {
+  font-size: 10px;
+  margin-bottom: 0;
+  color: #f5f5f5;
+  display: none;
+}
+
+.section__container--usuario .section__usuario .section__container--input .section__input--text-activo {
+  display: block;
+}
+
+.section__usuario-correcto .section__input--icon {
+  color: green;
+  opacity: 1;
+}
+
+.section__usuario-incorrecto .section__label {
+  color: red;
+}
+
+.section__usuario-incorrecto .section__input--icon {
+  color: red;
+  opacity: 1;
+}
+
+.section__usuario-incorrecto .section__input {
+  border: 3px solid red;
 }
 
 /* juego */

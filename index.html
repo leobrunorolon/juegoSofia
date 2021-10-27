@@ -29,12 +29,30 @@
         <h1 class="animate__animated animate__bounce animate__infinite">
           Hola Sofia
         </h1>
-        <div class="button__nube">
-          <button class="boton">
-            <a href="juego.html">Ingresa</a>
+        <form action="" class="section__container--usuario" id="formulario">
+          <div class="section__usuario" id="section__usuario">
+            <label for="usuario" class="section__label">Usuario</label>
+            <div class="section__container--input">
+              <input
+                type="text"
+                class="section__input"
+                name="usuario"
+                id="usuario"
+                placeholder="Sofia123"
+              />
+              <i class="section__input--icon fas fa-times-circle"></i>
+              <p class="section__input--text">
+                El usuario tiene que tener de 4 a 8 digitos y solo puede tener
+                numeros letras
+              </p>
+            </div>
+          </div>
+          <button type="submit" class="boton">
+            <a href="juego.html" id="ingreso">Ingreso</a>
           </button>
-        </div>
+        </form>
       </div>
     </div>
+    <script src="./js/main.js"></script>
   </body>
 </html>

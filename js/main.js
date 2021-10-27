@@ -8,7 +8,7 @@ const expresiones = {
 // formulario.addEventListener(`submit`, validarUsuario());
 // const Usuario = [];
 
-document.getElementById(`ingreso`).addEventListener(`click`, (event) => {
+document.getElementById(`formulario`).addEventListener(`submit`, (event) => {
   event.preventDefault();
   const usuario = document.getElementById(`usuario`).value;
   localStorage.setItem("usuario", usuario);

@@ -24,6 +24,7 @@ let inicio = true;
 let movTime = null;
 let movNube = null;
 let movUni = null;
+let verificador = false;
 
 function reseteo() {
   inicioPopUp();
@@ -41,6 +42,7 @@ function reseteoDos() {
   tiempo = 60;
   puntos = PuntosReseteo;
   vidas--;
+  verificador = false;
   stopPopUp();
   scoreCorazon();
   scorePuntos();
@@ -52,8 +54,7 @@ function sumarPuntos() {
   scorePuntos();
   movimientoUnicornio();
 
-  if (puntos == 5) {
-    stopPopUp();
+  if (puntos == 20) {
     subtitulo.textContent = `Eres grandioso has click en Inicio para continuar`;
     titulo.textContent = `Ganaste`;
     reseteoDos();
@@ -63,10 +64,8 @@ function sumarPuntos() {
 function restarTiempo() {
   scoreTiempo();
   if (tiempo == 0) {
-    reseteoDos();
     subtitulo.textContent = `Te quedaste sin tiempo has click en Inicio para continuar`;
     titulo.textContent = `Perdiste`;
-
     reseteoDos();
   } else {
     tiempo--;
@@ -78,9 +77,9 @@ function restarVida() {
   vidas--;
   scoreCorazon();
   if (vidas == 0) {
-    reseteoDos();
     subtitulo.textContent = `Te quedaste sin corazones has click en Inicio para continuar`;
     titulo.textContent = `Perdiste`;
+    reseteoDos();
   }
 }
 

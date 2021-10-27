@@ -51,6 +51,10 @@ h1 {
   transition-duration: 0.5s;
 }
 
+.section__boton {
+  margin: 1rem auto;
+}
+
 /*section usuario*/
 .section__container--usuario {
   display: flex;

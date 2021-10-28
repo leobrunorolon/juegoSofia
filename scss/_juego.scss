@@ -1,4 +1,21 @@
 /* juego */
+.section__sonido--container {
+  position: absolute;
+  font-size: 2rem;
+  .section__sonido {
+    position: relative;
+    top: 4rem;
+    left: 1.2rem;
+    .section__sonido:hover {
+      color: $colorsecundario;
+      font-weight: bold;
+    }
+  }
+  .section__sonido:hover {
+    color: $colorsecundario;
+    scale: 0.3;
+  }
+}
 .section__juego {
   font-family: "Press Start 2P", cursive;
   color: $colortexto;
@@ -9,7 +26,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 82vh;
+  height: 80vh;
   width: 100vw;
   overflow: hidden !important;
 }
@@ -29,7 +46,6 @@
   display: flex;
   margin-top: 4rem;
   margin-left: 6rem;
-  /* background-color: black; */
 }
 #nubes {
   background-image: url(../img/nube.png);
@@ -42,7 +58,6 @@
   cursor: pointer;
   margin-top: 10rem;
   margin-left: 6rem;
-  /* background-color: black; */
 }
 #nubesDos {
   background-image: url(../img/nube2.png);
@@ -55,10 +70,9 @@
   cursor: pointer;
   margin-top: 18rem;
   margin-left: 10rem;
-  /* background-color: red; */
 }
 .puntos {
-  height: 10vh;
+  height: 12vh;
   background-color: $colorterciario;
   display: flex;
   text-align: center;
@@ -75,6 +89,7 @@
   margin-right: 20px;
   background-color: $colorterciario;
   height: 8vh;
+  padding-top: 1rem;
 }
 
 .botonDos {
@@ -84,6 +99,7 @@
   font-family: "Alfa Slab One", cursive;
   color: pink;
   font-size: 18px;
+  z-index: 10;
 }
 .botonDos:hover {
   font-size: 25px;
@@ -91,4 +107,8 @@
   transition-duration: 0.5s;
   font-family: "Alfa Slab One", cursive;
   font-size: 20px;
+}
+
+.niveles {
+  color: $colorsecundario;
 }

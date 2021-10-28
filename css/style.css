@@ -137,6 +137,27 @@ h1 {
 }
 
 /* juego */
+.section__sonido--container {
+  position: absolute;
+  font-size: 2rem;
+}
+
+.section__sonido--container .section__sonido {
+  position: relative;
+  top: 4rem;
+  left: 1.2rem;
+}
+
+.section__sonido--container .section__sonido .section__sonido:hover {
+  color: #f74780;
+  font-weight: bold;
+}
+
+.section__sonido--container .section__sonido:hover {
+  color: #f74780;
+  scale: 0.3;
+}
+
 .section__juego {
   font-family: "Press Start 2P", cursive;
   color: #f5f5f5;
@@ -148,7 +169,7 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 82vh;
+  height: 80vh;
   width: 100vw;
   overflow: hidden !important;
 }
@@ -170,7 +191,6 @@ h1 {
   display: flex;
   margin-top: 4rem;
   margin-left: 6rem;
-  /* background-color: black; */
 }
 
 #nubes {
@@ -184,7 +204,6 @@ h1 {
   cursor: pointer;
   margin-top: 10rem;
   margin-left: 6rem;
-  /* background-color: black; */
 }
 
 #nubesDos {
@@ -198,11 +217,10 @@ h1 {
   cursor: pointer;
   margin-top: 18rem;
   margin-left: 10rem;
-  /* background-color: red; */
 }
 
 .puntos {
-  height: 10vh;
+  height: 12vh;
   background-color: #363636;
   display: flex;
   text-align: center;
@@ -220,6 +238,7 @@ h1 {
   margin-right: 20px;
   background-color: #363636;
   height: 8vh;
+  padding-top: 1rem;
 }
 
 .botonDos {
@@ -229,6 +248,7 @@ h1 {
   font-family: "Alfa Slab One", cursive;
   color: pink;
   font-size: 18px;
+  z-index: 10;
 }
 
 .botonDos:hover {
@@ -237,6 +257,10 @@ h1 {
   transition-duration: 0.5s;
   font-family: "Alfa Slab One", cursive;
   font-size: 20px;
+}
+
+.niveles {
+  color: #f74780;
 }
 
 .section__popup--container {
@@ -276,6 +300,8 @@ h1 {
 .section__popup h3 {
   margin-top: 1rem;
   font-size: 16px;
+  color: #363636;
+  font-weight: bold;
 }
 
 .section__popup p {

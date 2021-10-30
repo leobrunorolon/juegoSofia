@@ -9,7 +9,7 @@ body {
 }
 
 .section__img1 {
-  background-image: url(../img/fondo1.jpg);
+  background-image: url(../img/inicio.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -164,14 +164,33 @@ h1 {
   overflow: hidden !important;
 }
 
-.section__img2 {
-  background-image: url(../img/fondo2.jpg);
+.fondo {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 80vh;
   width: 100vw;
   overflow: hidden !important;
+}
+
+.fondo1 {
+  background-image: url(../img/fondo1.jpg);
+}
+
+.fondo2 {
+  background-image: url(../img/fondo2.jpg);
+}
+
+.fondo3 {
+  background-image: url(../img/fondo3.jpg);
+}
+
+.fondo4 {
+  background-image: url(../img/fondo4.jpg);
+}
+
+.fondo5 {
+  background-image: url(../img/fondo5.jpg);
 }
 
 .section__pantalla {
@@ -193,7 +212,8 @@ h1 {
   margin-left: 6rem;
 }
 
-#nubes {
+/*nubes*/
+.nubeUno {
   background-image: url(../img/nube.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -206,7 +226,7 @@ h1 {
   margin-left: 6rem;
 }
 
-#nubesDos {
+.nubeDos {
   background-image: url(../img/nube2.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -215,8 +235,55 @@ h1 {
   position: absolute;
   transition: all 3s ease;
   cursor: pointer;
-  margin-top: 18rem;
+  margin-top: 2rem;
   margin-left: 10rem;
+}
+
+.nubeTres {
+  background-image: url(../img/nube.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 6rem;
+  width: 8rem;
+  position: absolute;
+  transition: all 2s ease;
+  cursor: pointer;
+  margin-top: 20rem;
+  margin-left: 12rem;
+}
+
+.nubeCuatro {
+  background-image: url(../img/nube2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 7rem;
+  width: 7rem;
+  position: absolute;
+  transition: all 3s ease;
+  cursor: pointer;
+  margin-top: 26rem;
+  margin-left: 22rem;
+}
+
+.nubeCinco {
+  background-image: url(../img/nube.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 6rem;
+  width: 8rem;
+  position: absolute;
+  transition: all 2s ease;
+  cursor: pointer;
+  margin-top: 2rem;
+  margin-left: 25rem;
+}
+
+.nubes {
+  display: none;
+}
+
+.mostrar {
+  display: initial;
 }
 
 .puntos {
@@ -259,7 +326,7 @@ h1 {
   font-size: 20px;
 }
 
-.niveles {
+.nivel {
   color: #f74780;
 }
 

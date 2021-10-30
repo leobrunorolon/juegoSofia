@@ -147,7 +147,7 @@ function sumarPuntos() {
   puntos++;
   scoreTabla();
   movimientoUnicornio();
-  if (puntos == 2) {
+  if (puntos == 20) {
     subtitulo.textContent = `Eres grandios@ has pasado al siguiente Nivel Iniciar para continuar`;
     titulo.textContent = `Sigue asi`;
     reseteo();

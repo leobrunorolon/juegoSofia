@@ -52,68 +52,68 @@ let movNubeCinco = null;
 function iniciarJuego() {
   switch (nivel) {
     case 1: {
-      inicioPopUp();
-      scoreTabla();
-      intervalTiempo();
-      intervalUni(5000);
-      intervalNubeUno(2000);
-      niveles();
-      fondo.classList.remove(`fondo5`);
+      removeFondo();
       fondo.classList.add(`fondo1`);
-      break;
-    }
-    case 2: {
       inicioPopUp();
-      niveles();
-      scoreTabla();
-      intervalTiempo();
-      intervalUni(4000);
-      intervalNubeUno(2000);
-      intervalNubeDos(1000);
-      fondo.classList.remove(`fondo1`);
-      fondo.classList.add(`fondo2`);
-      break;
-    }
-    case 3: {
-      inicioPopUp();
-      niveles();
       scoreTabla();
       intervalTiempo();
       intervalUni(3000);
-      intervalNubeUno(2000);
-      intervalNubeDos(1000);
-      intervalNubeTres(800);
-      fondo.classList.remove(`fondo2`);
-      fondo.classList.add(`fondo3`);
+      intervalNubeUno(1000);
+      niveles();
       break;
     }
-    case 4: {
+    case 2: {
+      removeFondo();
+      fondo.classList.add(`fondo2`);
       inicioPopUp();
       niveles();
       scoreTabla();
       intervalTiempo();
       intervalUni(2000);
-      intervalNubeUno(1500);
-      intervalNubeDos(1000);
-      intervalNubeTres(800);
-      intervalNubeCuatro(500);
-      fondo.classList.remove(`fondo3`);
-      fondo.classList.add(`fondo4`);
+      intervalNubeUno(800);
+      intervalNubeDos(900);
       break;
     }
-    case 5: {
+    case 3: {
+      removeFondo();
+      fondo.classList.add(`fondo3`);
       inicioPopUp();
       niveles();
       scoreTabla();
       intervalTiempo();
       intervalUni(1000);
-      intervalNubeUno(2000);
-      intervalNubeDos(1000);
-      intervalNubeTres(800);
+      intervalNubeUno(800);
+      intervalNubeDos(500);
+      intervalNubeTres(400);
+      break;
+    }
+    case 4: {
+      removeFondo();
+      fondo.classList.add(`fondo4`);
+      inicioPopUp();
+      niveles();
+      scoreTabla();
+      intervalTiempo();
+      intervalUni(1000);
+      intervalNubeUno(700);
+      intervalNubeDos(600);
+      intervalNubeTres(500);
+      intervalNubeCuatro(400);
+      break;
+    }
+    case 5: {
+      removeFondo();
+      fondo.classList.add(`fondo5`);
+      inicioPopUp();
+      niveles();
+      scoreTabla();
+      intervalTiempo();
+      intervalUni(800);
+      intervalNubeUno(600);
+      intervalNubeDos(500);
+      intervalNubeTres(500);
       intervalNubeCuatro(500);
       intervalNubeCinco(300);
-      fondo.classList.remove(`fondo4`);
-      fondo.classList.add(`fondo5`);
       break;
     }
     default: {
@@ -141,6 +141,7 @@ function reseteoDos() {
   tiempo = 60;
   puntos = PuntosReseteo;
   vidas = 3;
+  nivel = 1;
 }
 
 function sumarPuntos() {
@@ -288,4 +289,12 @@ function removerNubes() {
   nubeTres.classList.remove(`mostrar`);
   nubeCuatro.classList.remove(`mostrar`);
   nubeCinco.classList.remove(`mostrar`);
+}
+
+function removeFondo() {
+  fondo.classList.remove(`fondo1`);
+  fondo.classList.remove(`fondo2`);
+  fondo.classList.remove(`fondo3`);
+  fondo.classList.remove(`fondo4`);
+  fondo.classList.remove(`fondo5`);
 }

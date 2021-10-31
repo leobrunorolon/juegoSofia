@@ -138,6 +138,7 @@ function reseteo() {
 function reseteoDos() {
   stopPopUp();
   intervalStop();
+  removerNubes();
   tiempo = 60;
   puntos = PuntosReseteo;
   vidas = 3;

@@ -11,13 +11,6 @@ document.getElementById(`popUp`);
 document.getElementById(`fondo`);
 const textoPop = document.getElementById(`textPop`);
 
-let subtitulo = document.createElement(`p`);
-subtitulo.textContent = `Haz click en Iniciar para continuar`;
-textoPop.appendChild(subtitulo);
-let titulo = document.createElement(`h3`);
-titulo.textContent = `Bienvenido`;
-textoPop.appendChild(titulo);
-
 var music = {
   overworld: new Howl({
     src: ["audio/Tones and I - Dance Monkey (Lyrics) (192 kbps).mp3"],
@@ -33,6 +26,17 @@ document.getElementById("stop").addEventListener("click", () => {
   music.overworld.pause();
 });
 
+const juegoInicio = {
+  corazones: 3,
+  puntos: 20,
+  tiempo: 60,
+  usuario: localStorage.getItem("usuario"),
+};
+const juegoJSON = JSON.stringify(juegoInicio);
+console.log(juegoJSON);
+
+let usuario = localStorage.getItem("usuario");
+console.log(usuario);
 const Corazones = 3;
 const PuntosReseteo = 0;
 let nivel = 1;
@@ -48,6 +52,13 @@ let movNubeDos = null;
 let movNubeTres = null;
 let movNubeCuatro = null;
 let movNubeCinco = null;
+/*Mas abajo se mantiene la estructura pero solo se modifica el texto */
+let subtitulo = document.createElement(`p`);
+subtitulo.textContent = `Haz click en Iniciar para continuar`;
+textoPop.appendChild(subtitulo);
+let titulo = document.createElement(`h3`);
+titulo.textContent = `Bienvenido ${usuario}`;
+textoPop.appendChild(titulo);
 
 function iniciarJuego() {
   switch (nivel) {

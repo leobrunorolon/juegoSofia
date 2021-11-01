@@ -31,7 +31,9 @@
         </h1>
         <form action="" class="section__container--usuario" id="formulario">
           <div class="section__usuario" id="section__usuario">
-            <label for="usuario" class="section__label">Usuario</label>
+            <label for="usuario" class="section__label"
+              >Ingresa tu Nombre</label
+            >
             <div class="section__container--input">
               <input
                 type="text"
@@ -47,14 +49,19 @@
               </p>
             </div>
             <div>
-              <button type="submit" class="boton botonDos section__boton">
+              <button
+                id="verificar"
+                type="submit"
+                class="boton botonDos section__boton"
+              >
                 Verificar
               </button>
+              <p id="mensajeError"></p>
             </div>
           </div>
           <div>
-            <button class="boton">
-              <a href="juego.html" id="ingreso">Ingreso</a>
+            <button id="botonIngreso" class="boton botonIngreso">
+              <a class="btn-close" href="juego.html" id="ingreso">Ingreso</a>
             </button>
           </div>
         </form>

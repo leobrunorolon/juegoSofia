@@ -45,6 +45,10 @@ h1 {
   font-size: 20px;
 }
 
+.botonIngreso {
+  display: none;
+}
+
 .boton a:hover {
   font-size: 25px;
   color: #f74780;
@@ -139,7 +143,9 @@ h1 {
 /* juego */
 .section__sonido--container {
   position: absolute;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .section__sonido--container .section__sonido {

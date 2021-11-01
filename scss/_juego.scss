@@ -1,7 +1,9 @@
 /* juego */
 .section__sonido--container {
   position: absolute;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
   .section__sonido {
     position: relative;
     top: 4rem;

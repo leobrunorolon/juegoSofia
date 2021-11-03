@@ -1,38 +1,16 @@
-const botonInicio = document
-  .getElementById(`botonInicio`)
-  .addEventListener(`click`, iniciarJuego);
-document.getElementById(`unicornio`).addEventListener("click", sumarPuntos);
-document.getElementById(`nubeUno`).addEventListener("click", restarVida);
-document.getElementById(`nubeDos`).addEventListener("click", restarVida);
-document.getElementById(`nubeTres`).addEventListener("click", restarVida);
-document.getElementById(`nubeCuatro`).addEventListener("click", restarVida);
-document.getElementById(`nubeCinco`).addEventListener("click", restarVida);
-document.getElementById(`popUp`);
-document.getElementById(`fondo`);
+const botonInicio = $(`#botonInicio`).click(iniciarJuego);
+const uniSumar = $(`#unicornio`).click(sumarPuntos);
+const nubesRestar = $(`.nubes`).click(restarVida);
+
 const textoPop = document.getElementById(`textPop`);
 
-var music = {
-  overworld: new Howl({
-    src: ["audio/Tones and I - Dance Monkey (Lyrics) (192 kbps).mp3"],
-  }),
-};
-
-document.getElementById("play").addEventListener("click", () => {
-  if (!music.overworld.playing()) {
-    music.overworld.play();
-  }
-});
-document.getElementById("stop").addEventListener("click", () => {
-  music.overworld.pause();
-});
-
-const juegoInicio = {
+const jugadorInicio = {
   corazones: 3,
   puntos: 20,
   tiempo: 60,
   usuario: localStorage.getItem("usuario"),
 };
-const juegoJSON = JSON.stringify(juegoInicio);
+const juegoJSON = JSON.stringify(jugadorInicio);
 console.log(juegoJSON);
 
 let usuario = localStorage.getItem("usuario");

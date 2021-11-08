@@ -20,10 +20,12 @@
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="css/style.css" />
     <title>Juego para Sofia</title>
   </head>
-  <body>
+  <body class="pantallaInicio">
     <div class="container section__index">
       <div class="section__img1">
         <h1 class="animate__animated animate__bounce animate__infinite">
@@ -31,10 +33,10 @@
         </h1>
         <form action="" class="section__container--usuario" id="formulario">
           <div class="section__usuario" id="section__usuario">
-            <label for="usuario" class="section__label"
+            <label for="usuario" class="section__label inputOculto"
               >Ingresa tu Nombre</label
             >
-            <div class="section__container--input">
+            <div class="section__container--input inputOculto">
               <input
                 type="text"
                 class="section__input"
@@ -52,11 +54,11 @@
               <button
                 id="verificar"
                 type="submit"
-                class="boton botonDos section__boton"
+                class="boton botonDos section__boton inputOculto"
               >
                 Verificar
               </button>
-              <p id="mensajeError"></p>
+              <p id="mensaje"></p>
             </div>
           </div>
           <div>
@@ -67,6 +69,7 @@
         </form>
       </div>
     </div>
+    <script src="./js/sonido.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./js/main.js"></script>

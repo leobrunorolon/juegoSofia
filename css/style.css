@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-body {
+.pantallaInicio {
   background-color: #fa8fb1;
 }
 
@@ -118,29 +118,15 @@ h1 {
   display: none;
 }
 
-.section__container--usuario .section__usuario .section__container--input .section__input--text-activo {
-  display: block;
-}
-
-.section__usuario-correcto .section__input--icon {
-  color: green;
-  opacity: 1;
-}
-
-.section__usuario-incorrecto .section__label {
-  color: red;
-}
-
-.section__usuario-incorrecto .section__input--icon {
-  color: red;
-  opacity: 1;
-}
-
-.section__usuario-incorrecto .section__input {
-  border: 3px solid red;
+.correcto {
+  color: #00a151;
 }
 
 /* juego */
+.pantallaJuego {
+  background-color: #363636;
+}
+
 .section__sonido--container {
   position: absolute;
   font-size: 1.5rem;
@@ -356,8 +342,8 @@ h1 {
 
 .section__popup {
   background-color: #f74780;
-  height: 12rem;
-  width: 20rem;
+  height: 14rem;
+  width: 22rem;
   border-radius: 1rem;
   display: flex;
   justify-content: center;

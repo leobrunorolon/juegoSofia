@@ -1,40 +1,28 @@
 document.getElementById(`formulario`).addEventListener(`submit`, (event) => {
   event.preventDefault();
-  let usuario = document.getElementById(`usuario`).value;
+  const usuario = document.getElementById(`usuario`).value;
   localStorage.setItem("usuario", usuario);
   if (!usuario) {
-    let error = document.getElementById(`mensajeError`);
+    let error = document.getElementById(`mensaje`);
     error.textContent = `Ingresa un Usuario para continuar`;
+  } else if (usuario.length <= 3 || usuario.length >= 8) {
+    let error = document.getElementById(`mensaje`);
+    error.textContent = `Ingresa un Usuario valido`;
+    $(`#mensaje`)
+      .append(
+        `<p>Recuerda que el Usuario</p> 
+      <p>tiene que tener entre 4 a 8 caracteres</p>`
+      )
+      .children()
+      .css(`color`, `gray`);
   } else {
-    let correcto = document.getElementById(`mensajeError`);
+    const correcto = document.getElementById(`mensaje`);
     correcto.textContent = `Usuario correcto`;
+    correcto.classList.add(`correcto`);
 
-    let botonIngreso = document.getElementById(`botonIngreso`);
-    botonIngreso.classList.add(`mostrar`);
+    const botonIngreso = document.getElementById(`botonIngreso`);
+    $(`#botonIngreso`).show(() => {
+      $(`.inputOculto`).slideUp(1000);
+    });
   }
 });
-
-// const inputs = document.querySelectorAll(`#formulario input`);
-
-// Letras, numeros, sin guion  guion_bajo y con caractares de 4 a 8
-// const expresiones = {
-//   usuarios: /^[a-zA-Z0-9]{4,8}$/,
-// };
-
-// formulario.addEventListener(`submit`, validarUsuario());
-// const Usuario = [];
-
-// function validarUsuario() {
-//   if (expresiones.usuarios.test(usuario)) {
-//     document
-//       .getElementById(`section__usuario`)
-//       .classList.remove(`section__usuario-incorrecto`);
-//     document
-//       .getElementById(`section__usuario`)
-//       .classList.add(`section__usuario-correcto`);
-//   } else {
-//     document
-//       .getElementById(`section__usuario`)
-//       .classList.add(`section__usuario-incorrecto`);
-//   }
-// }

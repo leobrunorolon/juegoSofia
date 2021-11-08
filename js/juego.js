@@ -109,7 +109,7 @@ function iniciarJuego() {
       intervalStop();
       removerNubes();
       subtitulo.textContent = `Completaste todos los niveles Iniciar para volver a empezar`;
-      titulo.textContent = `Ganaste`;
+      titulo.textContent = `Ganaste ${usuario}`;
       nivel = 1;
     }
   }
@@ -140,7 +140,7 @@ function sumarPuntos() {
   movimientoUnicornio();
   if (puntos == 20) {
     subtitulo.textContent = `Eres grandios@ has pasado al siguiente Nivel Iniciar para continuar`;
-    titulo.textContent = `Sigue asi`;
+    titulo.textContent = `Sigue asi ${usuario}`;
     reseteo();
   }
 }
@@ -149,13 +149,13 @@ function restarTiempo() {
   scoreTabla();
   if (tiempo == 0) {
     vidas--;
-    subtitulo.textContent = `Te quedaste sin tiempo has click en Iniciar para continuar`;
+    subtitulo.textContent = `Te quedaste sin tiempo ${usuario} has click en Iniciar para continuar`;
     titulo.textContent = `Perdiste un corazon`;
     reseteoDos();
   }
   if (vidas == 0) {
     subtitulo.textContent = `Te quedaste sin corazones has click en Inicio para continuar`;
-    titulo.textContent = `Perdiste`;
+    titulo.textContent = `Perdiste ${usuario}`;
     reseteoDos();
   }
 }
@@ -165,7 +165,7 @@ function restarVida() {
   scoreTabla();
   if (vidas == 0) {
     subtitulo.textContent = `Te quedaste sin corazones has click en Iniciar para continuar`;
-    titulo.textContent = `Perdiste`;
+    titulo.textContent = `Perdiste ${usuario}`;
     reseteoDos();
   }
 }
@@ -187,6 +187,7 @@ function niveles() {
 }
 // funciones para simplificar el codigo
 // movimiento
+
 function movimientoUnicornio() {
   unicornioT = Math.round(Math.random() * 70);
   document.getElementById(`unicornio`).style.marginTop = unicornioT + "vh";

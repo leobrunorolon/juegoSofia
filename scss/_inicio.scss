@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
+.pantallaInicio {
   background-color: $colorprimario;
 }
 .section__img1 {
@@ -101,29 +101,9 @@ h1 {
         color: $colortexto;
         display: none;
       }
-      .section__input--text-activo {
-        display: block;
-      }
     }
   }
 }
-
-.section__usuario-correcto {
-  .section__input--icon {
-    color: green;
-    opacity: 1;
-  }
-}
-
-.section__usuario-incorrecto {
-  .section__label {
-    color: red;
-  }
-  .section__input--icon {
-    color: red;
-    opacity: 1;
-  }
-  .section__input {
-    border: 3px solid red;
-  }
+.correcto {
+  color: #00a151;
 }

@@ -14,7 +14,7 @@ document.getElementById(`formulario`).addEventListener(`submit`, (event) => {
       <p>tiene que tener entre 4 a 8 caracteres</p>`
       )
       .children()
-      .css(`color`, `gray`);
+      .css(`color`, `#00a151`);
   } else {
     const correcto = document.getElementById(`mensaje`);
     correcto.textContent = `Usuario correcto`;

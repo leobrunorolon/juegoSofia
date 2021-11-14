@@ -1,108 +1,23 @@
-const botonInicio = $(`#botonInicio`).click(iniciarJuego);
-const uniSumar = $(`#unicornio`).click(sumarPuntos);
-const nubesRestar = $(`.nubes`).click(restarVida);
-
-const textoPop = document.getElementById(`textPop`);
-
-const jugadorInicio = {
-  corazones: 3,
-  puntos: 20,
-  tiempo: 60,
-  usuario: localStorage.getItem("usuario"),
-};
-const juegoJSON = JSON.stringify(jugadorInicio);
-console.log(juegoJSON);
-
-let usuario = localStorage.getItem("usuario");
-console.log(usuario);
-const Corazones = 3;
-const PuntosReseteo = 0;
-let nivel = 1;
-let puntos = 0;
-let tiempo = 60;
-let score = 20;
-let vidas = Corazones;
-let inicio = true;
-let movTime = 0;
-let movUni = 0;
-let movNubeUno = null;
-let movNubeDos = null;
-let movNubeTres = null;
-let movNubeCuatro = null;
-let movNubeCinco = null;
-/*Mas abajo se mantiene la estructura pero solo se modifica el texto */
-let subtitulo = document.createElement(`p`);
-subtitulo.textContent = `Haz click en Iniciar para continuar`;
-textoPop.appendChild(subtitulo);
-let titulo = document.createElement(`h3`);
-titulo.textContent = `Bienvenido ${usuario}`;
-textoPop.appendChild(titulo);
-
-function iniciarJuego() {
+const iniciarJuego = () => {
   switch (nivel) {
     case 1: {
-      removeFondo();
-      fondo.classList.add(`fondo1`);
-      inicioPopUp();
-      scoreTabla();
-      intervalTiempo();
-      intervalUni(3000);
-      intervalNubeUno(1000);
-      niveles();
+      jugar();
       break;
     }
     case 2: {
-      removeFondo();
-      fondo.classList.add(`fondo2`);
-      inicioPopUp();
-      niveles();
-      scoreTabla();
-      intervalTiempo();
-      intervalUni(2000);
-      intervalNubeUno(800);
-      intervalNubeDos(900);
+      jugar();
       break;
     }
     case 3: {
-      removeFondo();
-      fondo.classList.add(`fondo3`);
-      inicioPopUp();
-      niveles();
-      scoreTabla();
-      intervalTiempo();
-      intervalUni(1000);
-      intervalNubeUno(800);
-      intervalNubeDos(500);
-      intervalNubeTres(400);
+      jugar();
       break;
     }
     case 4: {
-      removeFondo();
-      fondo.classList.add(`fondo4`);
-      inicioPopUp();
-      niveles();
-      scoreTabla();
-      intervalTiempo();
-      intervalUni(1000);
-      intervalNubeUno(700);
-      intervalNubeDos(600);
-      intervalNubeTres(500);
-      intervalNubeCuatro(400);
+      jugar();
       break;
     }
     case 5: {
-      removeFondo();
-      fondo.classList.add(`fondo5`);
-      inicioPopUp();
-      niveles();
-      scoreTabla();
-      intervalTiempo();
-      intervalUni(800);
-      intervalNubeUno(600);
-      intervalNubeDos(500);
-      intervalNubeTres(500);
-      intervalNubeCuatro(500);
-      intervalNubeCinco(300);
+      jugar();
       break;
     }
     default: {
@@ -113,18 +28,25 @@ function iniciarJuego() {
       nivel = 1;
     }
   }
-}
+};
+const jugar = () => {
+  removeFondo();
+  inicioPopUp();
+  scoreTabla();
+  intervalTiempo();
+  niveles();
+};
 
-function reseteo() {
+const reseteo = () => {
   stopPopUp();
   tiempo = 60;
   puntos = PuntosReseteo;
   vidas = Corazones;
   nivel++;
   intervalStop();
-}
+};
 
-function reseteoDos() {
+const reseteoDos = () => {
   stopPopUp();
   intervalStop();
   removerNubes();
@@ -132,19 +54,19 @@ function reseteoDos() {
   puntos = PuntosReseteo;
   vidas = 3;
   nivel = 1;
-}
+};
 
-function sumarPuntos() {
+const sumarPuntos = () => {
   puntos++;
   scoreTabla();
-  movimientoUnicornio();
+  movimiento("unicornio");
   if (puntos == 20) {
     subtitulo.textContent = `Eres grandios@ has pasado al siguiente Nivel Iniciar para continuar`;
     titulo.textContent = `Sigue asi ${usuario}`;
     reseteo();
   }
-}
-function restarTiempo() {
+};
+const restarTiempo = () => {
   tiempo--;
   scoreTabla();
   if (tiempo == 0) {
@@ -158,9 +80,9 @@ function restarTiempo() {
     titulo.textContent = `Perdiste ${usuario}`;
     reseteoDos();
   }
-}
+};
 
-function restarVida() {
+const restarVida = () => {
   vidas--;
   scoreTabla();
   if (vidas == 0) {
@@ -168,86 +90,96 @@ function restarVida() {
     titulo.textContent = `Perdiste ${usuario}`;
     reseteoDos();
   }
-}
+};
 
-function niveles() {
+const niveles = () => {
   scoreTabla();
   if (nivel == 1) {
-    nubeUno.classList.add(`mostrar`);
+    $("#nubeUno").addClass(`mostrar`);
+    $("#fondo").addClass(`fondo1`);
+    intervalUni(1000);
+    intervalNubeUno(1000);
   } else if (nivel == 2) {
-    nubeDos.classList.add(`mostrar`);
+    $("#nubeDos").addClass(`mostrar`);
+    $("#fondo").addClass(`fondo2`);
+    intervalUni(1000);
+    intervalNubeUno(1000);
+    intervalNubeDos(2000);
   } else if (nivel == 3) {
-    nubeTres.classList.add(`mostrar`);
+    $("#nubeTres").addClass(`mostrar`);
+    $("#fondo").addClass(`fondo3`);
+    scoreTabla();
+    intervalUni(1000);
+    intervalNubeUno(1000);
+    intervalNubeDos(2000);
+    intervalNubeTres(800);
   } else if (nivel == 4) {
-    nubeCuatro.classList.add(`mostrar`);
+    $("#nubeCuatro").addClass(`mostrar`);
+    $("#fondo").addClass(`fondo4`);
+    scoreTabla();
+    intervalUni(1000);
+    intervalNubeUno(1000);
+    intervalNubeDos(2000);
+    intervalNubeTres(800);
+    intervalNubeCuatro(600);
   } else if (nivel == 5) {
-    nubeCinco.classList.add(`mostrar`);
+    $("#nubeCinco").addClass(`mostrar`);
+    $("#fondo").addClass(`fondo5`);
+    scoreTabla();
+    intervalUni(1000);
+    intervalNubeUno(1000);
+    intervalNubeDos(2000);
+    intervalNubeTres(800);
+    intervalNubeCuatro(600);
+    intervalNubeCinco(400);
   } else {
   }
-}
+};
 // funciones para simplificar el codigo
 // movimiento
-
-function movimientoUnicornio() {
-  unicornioT = Math.round(Math.random() * 70);
-  document.getElementById(`unicornio`).style.marginTop = unicornioT + "vh";
-  unicornioL = Math.round(Math.random() * 85);
-  document.getElementById(`unicornio`).style.marginLeft = unicornioL + "vw";
-}
-function movimientoNubeUno() {
-  nubeUnoT = Math.round(Math.random() * 75);
-  document.getElementById(`nubeUno`).style.marginTop = nubeUnoT + "vh";
-  nubeUnoL = Math.round(Math.random() * 90);
-  document.getElementById(`nubeUno`).style.marginLeft = nubeUnoL + "vw";
-}
-function movimientoNubeDos() {
-  nubeDosT = Math.round(Math.random() * 75);
-  document.getElementById(`nubeDos`).style.marginTop = nubeDosT + "vh";
-  nubeDosL = Math.round(Math.random() * 90);
-  document.getElementById(`nubeDos`).style.marginLeft = nubeDosL + "vw";
-}
-function movimientoNubeTres() {
-  nubeTresT = Math.round(Math.random() * 75);
-  document.getElementById(`nubeTres`).style.marginTop = nubeTresT + "vh";
-  nubeTresL = Math.round(Math.random() * 90);
-  document.getElementById(`nubeTres`).style.marginLeft = nubeTresL + "vw";
-}
-function movimientoNubeCuatro() {
-  nubeCuatroT = Math.round(Math.random() * 75);
-  document.getElementById(`nubeCuatro`).style.marginTop = nubeCuatroT + "vh";
-  nubeCuatroL = Math.round(Math.random() * 90);
-  document.getElementById(`nubeCuatro`).style.marginLeft = nubeCuatroL + "vw";
-}
-function movimientoNubeCinco() {
-  nubeCincoT = Math.round(Math.random() * 75);
-  document.getElementById(`nubeCinco`).style.marginTop = nubeCincoT + "vh";
-  nubeCincoL = Math.round(Math.random() * 90);
-  document.getElementById(`nubeCinco`).style.marginLeft = nubeCincoL + "vw";
-}
-
-function intervalUni(interval) {
-  movUni = setInterval(movimientoUnicornio, interval);
-}
-function intervalNubeUno(interval) {
-  movNubeUno = setInterval(movimientoNubeUno, interval);
-}
-function intervalNubeDos(interval) {
-  movNubeDos = setInterval(movimientoNubeDos, interval);
-}
-function intervalNubeTres(interval) {
-  movNubeTres = setInterval(movimientoNubeTres, interval);
-}
-function intervalNubeCuatro(interval) {
-  movNubeCuatro = setInterval(movimientoNubeCuatro, interval);
-}
-function intervalNubeCinco(interval) {
-  movNubeCinco = setInterval(movimientoNubeCinco, interval);
-}
-function intervalTiempo() {
+const movimiento = (dato) => {
+  let datoT = dato + "T";
+  datoT = Math.round(Math.random() * 70);
+  $(`#` + dato).css("marginTop", datoT + "vh");
+  let datoL = dato + "L";
+  datoL = Math.round(Math.random() * 85);
+  $(`#` + dato).css("marginLeft", datoL + "vw");
+};
+const intervalUni = (interval) => {
+  movUni = setInterval(() => {
+    movimiento("unicornio");
+  }, interval);
+};
+const intervalNubeUno = (interval) => {
+  movNubeUno = setInterval(() => {
+    movimiento("nubeUno");
+  }, interval);
+};
+const intervalNubeDos = (interval) => {
+  movNubeDos = setInterval(() => {
+    movimiento("nubeDos");
+  }, interval);
+};
+const intervalNubeTres = (interval) => {
+  movNubeTres = setInterval(() => {
+    movimiento("nubeTres");
+  }, interval);
+};
+const intervalNubeCuatro = (interval) => {
+  movNubeCuatro = setInterval(() => {
+    movimiento("nubeCuatro");
+  }, interval);
+};
+const intervalNubeCinco = (interval) => {
+  movNubeCinco = setInterval(() => {
+    movimiento("nubeCinco");
+  }, interval);
+};
+const intervalTiempo = () => {
   movTime = setInterval(restarTiempo, 1000);
-}
+};
 
-function intervalStop() {
+const intervalStop = () => {
   clearInterval(movTime);
   clearInterval(movUni);
   clearInterval(movNubeUno);
@@ -255,37 +187,80 @@ function intervalStop() {
   clearInterval(movNubeTres);
   clearInterval(movNubeCuatro);
   clearInterval(movNubeCinco);
-}
+};
 
-function scoreTabla() {
-  document.getElementById(
-    "vidas"
-  ).innerHTML = `Corazones: ${vidas}/${Corazones}`;
-  document.getElementById("puntos").innerHTML = `Puntos: ${puntos}/${score}`;
-  document.getElementById("tiempo").innerHTML = `Tiempo: ${tiempo}`;
-  document.getElementById("nivel").innerHTML = `Nivel: ${nivel}/5`;
-}
+const scoreTabla = () => {
+  $("#vidas").html(`Corazones: ${vidas}/${Corazones}`);
+  $("#puntos").html(`Puntos: ${puntos}/${score}`);
+  $("#tiempo").html(`Tiempo: ${tiempo}`);
+  $("#nivel").html(`Nivel: ${nivel}/5`);
+};
 
-function inicioPopUp() {
-  popUp.classList.add(`active`);
-}
+const inicioPopUp = () => {
+  $("#popUp").addClass(`active`);
+};
 
-function stopPopUp() {
-  popUp.classList.remove(`active`);
-}
+const stopPopUp = () => {
+  $("#popUp").removeClass(`active`);
+};
 
-function removerNubes() {
-  nubeUno.classList.remove(`mostrar`);
-  nubeDos.classList.remove(`mostrar`);
-  nubeTres.classList.remove(`mostrar`);
-  nubeCuatro.classList.remove(`mostrar`);
-  nubeCinco.classList.remove(`mostrar`);
-}
+const removerNubes = () => {
+  $("#nubeUno").removeClass(`mostrar`);
+  $("#nubeDos").removeClass(`mostrar`);
+  $("#nubeTres").removeClass(`mostrar`);
+  $("#nubeCuatro").removeClass(`mostrar`);
+  $("#nubeCinco").removeClass(`mostrar`);
+};
 
-function removeFondo() {
-  fondo.classList.remove(`fondo1`);
-  fondo.classList.remove(`fondo2`);
-  fondo.classList.remove(`fondo3`);
-  fondo.classList.remove(`fondo4`);
-  fondo.classList.remove(`fondo5`);
-}
+const removeFondo = () => {
+  $("#fondo").removeClass(`fondo1`);
+  $("#fondo").removeClass(`fondo2`);
+  $("#fondo").removeClass(`fondo3`);
+  $("#fondo").removeClass(`fondo4`);
+  $("#fondo").removeClass(`fondo5`);
+};
+
+const botonInicio = $(`#botonInicio`).click(iniciarJuego);
+const uniSumar = $(`#unicornio`).click(sumarPuntos);
+const nubesRestar = $(`.nubes`).click(restarVida);
+const usuario = localStorage.getItem("usuario");
+// const URLJSON = "juego.json";
+// $.getJSON(URLJSON, function (respuesta, estado) {
+//   if (estado === "success") {
+//     for (const dato of respuesta.juego) {
+//       const Corazones = dato.corazones;
+//       const PuntosReseteo = dato.puntosReseteo;
+//       let nivel = dato.nivel;
+//       let puntos = datos.puntos;
+//       let tiempo = datos.tiempo;
+//       let score = datos.score;
+//       let vidas = datos.vidas;
+//     }
+//   }
+// });
+
+const Corazones = 3;
+const PuntosReseteo = 0;
+let nivel = 1;
+let puntos = 0;
+let tiempo = 60;
+let score = 20;
+let vidas = Corazones;
+
+let movTime = 0;
+let movUni = null;
+let movNubeUno = null;
+let movNubeDos = null;
+let movNubeTres = null;
+let movNubeCuatro = null;
+let movNubeCinco = null;
+/*Se utilizo este metodo ya que me resulto mas facil ya que de este modo
+se mantiene la estructura pero solo se modifica el texto */
+const textoPop = document.getElementById(`textPop`);
+let subtitulo = document.createElement(`p`);
+subtitulo.textContent = `Haz click en Iniciar para continuar`;
+textoPop.appendChild(subtitulo);
+let titulo = document.createElement(`h3`);
+titulo.textContent = `Bienvenido ${usuario}`;
+textoPop.appendChild(titulo);
+$("#textPop").append();

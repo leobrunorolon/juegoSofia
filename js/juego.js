@@ -236,13 +236,26 @@ const traerDatos = () => {
     }
   });
 };
+const traerMapas = () => {
+  $.getJSON(MAPJSON, function (respuesta, estado) {
+    if (estado === "success") {
+      for (const dato of respuesta.mapas) {
+        fondo1 = dato.fondo1;
+        fondo2 = dato.fondo2;
+        fondo3 = dato.Fondo3;
+        fondo4 = dato.Fondo4;
+        fondo5 = dato.Fondo5;
+      }
+    }
+  });
+};
 
 const botonInicio = $(`#botonInicio`).click(iniciarJuego);
 const uniSumar = $(`#unicornio`).click(sumarPuntos);
 const nubesRestar = $(`.nubes`).click(restarVida);
 const usuario = localStorage.getItem("usuario");
 const URLJSON = "json/juego.json";
-const URLJSON = "json/mapas.json";
+const MAPJSON = "json/mapas.json";
 
 // const Corazones = 3;
 // const PuntosReseteo = 0;

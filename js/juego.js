@@ -21,6 +21,7 @@ const iniciarJuego = () => {
       break;
     }
     default: {
+      traerDatos();
       intervalStop();
       removerNubes();
       subtitulo.textContent = `Completaste todos los niveles Iniciar para volver a empezar`;
@@ -31,10 +32,10 @@ const iniciarJuego = () => {
 };
 const jugar = () => {
   removeFondo();
-  inicioPopUp();
   scoreTabla();
   intervalTiempo();
   niveles();
+  inicioPopUp();
 };
 
 const reseteo = () => {
@@ -220,32 +221,36 @@ const removeFondo = () => {
   $("#fondo").removeClass(`fondo5`);
 };
 
+const traerDatos = () => {
+  $.getJSON(URLJSON, function (respuesta, estado) {
+    if (estado === "success") {
+      for (const dato of respuesta.juego) {
+        Corazones = Number(dato.corazones);
+        PuntosReseteo = Number(dato.puntosReseteo);
+        nivel = Number(dato.nivel);
+        puntos = Number(dato.puntos);
+        tiempo = Number(dato.tiempo);
+        score = Number(dato.score);
+        vidas = Number(dato.vidas);
+      }
+    }
+  });
+};
+
 const botonInicio = $(`#botonInicio`).click(iniciarJuego);
 const uniSumar = $(`#unicornio`).click(sumarPuntos);
 const nubesRestar = $(`.nubes`).click(restarVida);
 const usuario = localStorage.getItem("usuario");
-// const URLJSON = "juego.json";
-// $.getJSON(URLJSON, function (respuesta, estado) {
-//   if (estado === "success") {
-//     for (const dato of respuesta.juego) {
-//       const Corazones = dato.corazones;
-//       const PuntosReseteo = dato.puntosReseteo;
-//       let nivel = dato.nivel;
-//       let puntos = datos.puntos;
-//       let tiempo = datos.tiempo;
-//       let score = datos.score;
-//       let vidas = datos.vidas;
-//     }
-//   }
-// });
+const URLJSON = "json/juego.json";
+const URLJSON = "json/mapas.json";
 
-const Corazones = 3;
-const PuntosReseteo = 0;
-let nivel = 1;
-let puntos = 0;
-let tiempo = 60;
-let score = 20;
-let vidas = Corazones;
+// const Corazones = 3;
+// const PuntosReseteo = 0;
+// let nivel = 1;
+// let puntos = 0;
+// let tiempo = 60;
+// let score = 20;
+// let vidas = Corazones;
 
 let movTime = 0;
 let movUni = null;

@@ -1,11 +1,11 @@
 {
     "juego": [
-        {"corazones": "3"},
-        {"puntosReseteo":"0"},
-        {"nivel": "1"},
-        {"punto": "0"},
-        {"tiempo": "60"},
-        {"score": "20"},
-        {"vidas": "3"}
+        {"corazones": "3",
+        "puntosReseteo": "0",
+        "nivel": "1",
+        "puntos": "0",
+        "tiempo": "60",
+        "score": "20",
+        "vidas": "3"}
     ]
 }

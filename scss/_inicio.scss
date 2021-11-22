@@ -81,11 +81,12 @@ h1 {
       }
       .section__input::placeholder {
         color: $colorsecundario;
-        font-weight: bold;
       }
       .section__input:focus {
         border: 3px solid $colorsecundario;
         outline: none;
+        color: $colorsecundario;
+        font-family: "Alfa Slab One", cursive;
       }
       .section__input--icon {
         position: absolute;
@@ -103,7 +104,4 @@ h1 {
       }
     }
   }
-}
-.correcto {
-  color: #00a151;
 }

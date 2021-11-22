@@ -21,12 +21,12 @@ const iniciarJuego = () => {
       break;
     }
     default: {
+      if (nivel == 6) {
+        subtitulo.textContent = `Completaste todos los niveles Iniciar para volver a empezar`;
+        titulo.textContent = `Ganaste ${usuario}`;
+      }
       traerDatos();
-      intervalStop();
       removerNubes();
-      subtitulo.textContent = `Completaste todos los niveles Iniciar para volver a empezar`;
-      titulo.textContent = `Ganaste ${usuario}`;
-      nivel = 1;
     }
   }
 };
@@ -40,11 +40,11 @@ const jugar = () => {
 
 const reseteo = () => {
   stopPopUp();
+  intervalStop();
   tiempo = 60;
   puntos = PuntosReseteo;
   vidas = Corazones;
   nivel++;
-  intervalStop();
 };
 
 const reseteoDos = () => {
@@ -134,6 +134,7 @@ const niveles = () => {
     intervalNubeCuatro(600);
     intervalNubeCinco(400);
   } else {
+    traerDatos();
   }
 };
 // funciones para simplificar el codigo
@@ -249,21 +250,17 @@ const traerMapas = () => {
     }
   });
 };
+const infoJuego = () => {
+  // armar una una pantalla mostrando como jugar el juego
+};
 
 const botonInicio = $(`#botonInicio`).click(iniciarJuego);
 const uniSumar = $(`#unicornio`).click(sumarPuntos);
 const nubesRestar = $(`.nubes`).click(restarVida);
+const informacion = $(`#info`).click(infoJuego);
 const usuario = localStorage.getItem("usuario");
 const URLJSON = "json/juego.json";
-const MAPJSON = "json/mapas.json";
-
-// const Corazones = 3;
-// const PuntosReseteo = 0;
-// let nivel = 1;
-// let puntos = 0;
-// let tiempo = 60;
-// let score = 20;
-// let vidas = Corazones;
+const URLJSONMAP = "json/mapas.json";
 
 let movTime = 0;
 let movUni = null;
@@ -281,4 +278,3 @@ textoPop.appendChild(subtitulo);
 let titulo = document.createElement(`h3`);
 titulo.textContent = `Bienvenido ${usuario}`;
 textoPop.appendChild(titulo);
-$("#textPop").append();

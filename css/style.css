@@ -94,12 +94,13 @@ h1 {
 
 .section__container--usuario .section__usuario .section__container--input .section__input::placeholder {
   color: #f74780;
-  font-weight: bold;
 }
 
 .section__container--usuario .section__usuario .section__container--input .section__input:focus {
   border: 3px solid #f74780;
   outline: none;
+  color: #f74780;
+  font-family: "Alfa Slab One", cursive;
 }
 
 .section__container--usuario .section__usuario .section__container--input .section__input--icon {
@@ -116,10 +117,6 @@ h1 {
   margin-bottom: 0;
   color: #f5f5f5;
   display: none;
-}
-
-.correcto {
-  color: #00a151;
 }
 
 /* juego */

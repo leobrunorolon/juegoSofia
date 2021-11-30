@@ -67,9 +67,14 @@
         <div class="nubes nubeCinco" id="nubeCinco"></div>
       </div>
     </div>
-    <div class="section__popup--container" id="popUp">
-      <div class="section__popup" id="textPop">
-        <button class="boton botonDos" id="botonInicio">Iniciar</button>
+    <div class="container-fluid section__popup--container" id="popUp">
+      <div class="row">
+        <div class="col-12 section__popup" id="textPopContainer">
+          <div id="textPop"></div>
+          <div>
+            <button class="boton botonDos" id="botonInicio">Iniciar</button>
+          </div>
+        </div>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -80,6 +85,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/sonido.js"></script>
+    <script src="js/popUp.js"></script>
     <script src="json/juego.json"></script>
     <script src="json/mapas.json"></script>
     <script src="js/juego.js"></script>

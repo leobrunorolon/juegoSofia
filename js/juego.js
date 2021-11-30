@@ -1,122 +1,98 @@
+// inicializacion de pop up
+textoPopUp();
+// inicio del juego
 const iniciarJuego = () => {
-  switch (nivel) {
-    case 1: {
-      jugar();
-      break;
-    }
-    case 2: {
-      jugar();
-      break;
-    }
-    case 3: {
-      jugar();
-      break;
-    }
-    case 4: {
-      jugar();
-      break;
-    }
-    case 5: {
-      jugar();
-      break;
-    }
-    default: {
-      if (nivel == 6) {
-        subtitulo.textContent = `Completaste todos los niveles Iniciar para volver a empezar`;
-        titulo.textContent = `Ganaste ${usuario}`;
-      }
-      traerDatos();
-      removerNubes();
+  if (nivel <= 5) {
+    jugar();
+  } else {
+    traerDatos();
+    if (nivel == 6) {
+      popGanar();
+      removerOjetos();
     }
   }
 };
+// iniciar datos del juego
 const jugar = () => {
-  removeFondo();
-  scoreTabla();
+  stopPopUp();
   intervalTiempo();
   niveles();
-  inicioPopUp();
+  scoreTabla();
 };
-
+// Reseteo up nivel
 const reseteo = () => {
-  stopPopUp();
   intervalStop();
   tiempo = 60;
   puntos = PuntosReseteo;
   vidas = Corazones;
   nivel++;
 };
-
+// Reseteo game over
 const reseteoDos = () => {
-  stopPopUp();
   intervalStop();
-  removerNubes();
+  removerOjetos();
   tiempo = 60;
   puntos = PuntosReseteo;
   vidas = 3;
   nivel = 1;
 };
 
+// sumado de puntos por click en unicornio
 const sumarPuntos = () => {
   puntos++;
   scoreTabla();
   movimiento("unicornio");
   if (puntos == 20) {
-    subtitulo.textContent = `Eres grandios@ has pasado al siguiente Nivel Iniciar para continuar`;
-    titulo.textContent = `Sigue asi ${usuario}`;
     reseteo();
+    popNextNivel();
   }
 };
+
+// manejo de tiempo
 const restarTiempo = () => {
   tiempo--;
   scoreTabla();
   if (tiempo == 0) {
     vidas--;
-    subtitulo.textContent = `Te quedaste sin tiempo ${usuario} has click en Iniciar para continuar`;
-    titulo.textContent = `Perdiste un corazon`;
     reseteoDos();
+    popSinTiempo();
   }
   if (vidas == 0) {
-    subtitulo.textContent = `Te quedaste sin corazones has click en Inicio para continuar`;
-    titulo.textContent = `Perdiste ${usuario}`;
     reseteoDos();
+    popSinVida();
   }
 };
 
+// restar vida por click en nubes
 const restarVida = () => {
   vidas--;
   scoreTabla();
   if (vidas == 0) {
-    subtitulo.textContent = `Te quedaste sin corazones has click en Iniciar para continuar`;
-    titulo.textContent = `Perdiste ${usuario}`;
     reseteoDos();
+    popSinVida();
   }
 };
-
+// niveles de juego de aca se puede configurar el fondo cantidad de nubes velocidad de cambio de unicornio o nubes
 const niveles = () => {
   scoreTabla();
   if (nivel == 1) {
-    $("#nubeUno").addClass(`mostrar`);
-    $("#fondo").addClass(`fondo1`);
+    addObjeto();
     intervalUni(1000);
     intervalNubeUno(1000);
   } else if (nivel == 2) {
-    $("#nubeDos").addClass(`mostrar`);
-    $("#fondo").addClass(`fondo2`);
+    addObjeto();
     intervalUni(1000);
     intervalNubeUno(1000);
     intervalNubeDos(2000);
   } else if (nivel == 3) {
-    $("#nubeTres").addClass(`mostrar`);
-    $("#fondo").addClass(`fondo3`);
+    addObjeto();
     scoreTabla();
     intervalUni(1000);
     intervalNubeUno(1000);
     intervalNubeDos(2000);
     intervalNubeTres(800);
   } else if (nivel == 4) {
-    $("#nubeCuatro").addClass(`mostrar`);
-    $("#fondo").addClass(`fondo4`);
+    addObjeto();
     scoreTabla();
     intervalUni(1000);
     intervalNubeUno(1000);
@@ -124,8 +100,7 @@ const niveles = () => {
     intervalNubeTres(800);
     intervalNubeCuatro(600);
   } else if (nivel == 5) {
-    $("#nubeCinco").addClass(`mostrar`);
-    $("#fondo").addClass(`fondo5`);
+    addObjeto();
     scoreTabla();
     intervalUni(1000);
     intervalNubeUno(1000);
@@ -133,10 +108,13 @@ const niveles = () => {
     intervalNubeTres(800);
     intervalNubeCuatro(600);
     intervalNubeCinco(400);
+  } else if (nivel == 6) {
+    popGanar();
   } else {
     traerDatos();
   }
 };
+
 // funciones para simplificar el codigo
 // movimiento
 const movimiento = (dato) => {
@@ -147,40 +125,50 @@ const movimiento = (dato) => {
   datoL = Math.round(Math.random() * 85);
   $(`#` + dato).css("marginLeft", datoL + "vw");
 };
+
+// movimiento + intervalo de objetos
+// unicornio
 const intervalUni = (interval) => {
   movUni = setInterval(() => {
     movimiento("unicornio");
   }, interval);
 };
+// nube uno
 const intervalNubeUno = (interval) => {
   movNubeUno = setInterval(() => {
     movimiento("nubeUno");
   }, interval);
 };
+// nube dos
 const intervalNubeDos = (interval) => {
   movNubeDos = setInterval(() => {
     movimiento("nubeDos");
   }, interval);
 };
+// nube tres
 const intervalNubeTres = (interval) => {
   movNubeTres = setInterval(() => {
     movimiento("nubeTres");
   }, interval);
 };
+// nube cuatro
 const intervalNubeCuatro = (interval) => {
   movNubeCuatro = setInterval(() => {
     movimiento("nubeCuatro");
   }, interval);
 };
+// nube cinco
 const intervalNubeCinco = (interval) => {
   movNubeCinco = setInterval(() => {
     movimiento("nubeCinco");
   }, interval);
 };
+// manejo de tiempo  atravez de interval
 const intervalTiempo = () => {
   movTime = setInterval(restarTiempo, 1000);
 };
 
+// stop de tiempo y objetos
 const intervalStop = () => {
   clearInterval(movTime);
   clearInterval(movUni);
@@ -191,6 +179,7 @@ const intervalStop = () => {
   clearInterval(movNubeCinco);
 };
 
+// tabla de score de juego
 const scoreTabla = () => {
   $("#vidas").html(`Corazones: ${vidas}/${Corazones}`);
   $("#puntos").html(`Puntos: ${puntos}/${score}`);
@@ -198,23 +187,35 @@ const scoreTabla = () => {
   $("#nivel").html(`Nivel: ${nivel}/5`);
 };
 
-const inicioPopUp = () => {
-  $("#popUp").addClass(`active`);
+// agregar nube y fondo segun el nivel
+const addObjeto = () => {
+  if (nivel == 1) {
+    $("#nubeUno").addClass(`mostrar`);
+    $("#fondo").addClass(`fondo1`);
+  } else if (nivel == 2) {
+    $("#nubeDos").addClass(`mostrar`);
+    $("#fondo").addClass(`fondo2`);
+  } else if (nivel == 3) {
+    $("#nubeTres").addClass(`mostrar`);
+    $("#fondo").addClass(`fondo3`);
+  } else if (nivel == 4) {
+    $("#nubeCuatro").addClass(`mostrar`);
+    $("#fondo").addClass(`fondo4`);
+  } else if (nivel == 5) {
+    $("#nubeCinco").addClass(`mostrar`);
+    $("#fondo").addClass(`fondo5`);
+  } else {
+  }
 };
 
-const stopPopUp = () => {
-  $("#popUp").removeClass(`active`);
-};
-
-const removerNubes = () => {
+// remover nubes y fondo al perder
+const removerOjetos = () => {
   $("#nubeUno").removeClass(`mostrar`);
   $("#nubeDos").removeClass(`mostrar`);
   $("#nubeTres").removeClass(`mostrar`);
   $("#nubeCuatro").removeClass(`mostrar`);
   $("#nubeCinco").removeClass(`mostrar`);
-};
 
-const removeFondo = () => {
   $("#fondo").removeClass(`fondo1`);
   $("#fondo").removeClass(`fondo2`);
   $("#fondo").removeClass(`fondo3`);
@@ -222,6 +223,7 @@ const removeFondo = () => {
   $("#fondo").removeClass(`fondo5`);
 };
 
+// traer datos del juego json
 const traerDatos = () => {
   $.getJSON(URLJSON, function (respuesta, estado) {
     if (estado === "success") {
@@ -250,15 +252,17 @@ const traerMapas = () => {
     }
   });
 };
+
+// popup info del juego
 const infoJuego = () => {
-  // armar una una pantalla mostrando como jugar el juego
+  popInfo();
+  intervalStop();
 };
 
 const botonInicio = $(`#botonInicio`).click(iniciarJuego);
 const uniSumar = $(`#unicornio`).click(sumarPuntos);
 const nubesRestar = $(`.nubes`).click(restarVida);
 const informacion = $(`#info`).click(infoJuego);
-const usuario = localStorage.getItem("usuario");
 const URLJSON = "json/juego.json";
 const URLJSONMAP = "json/mapas.json";
 
@@ -269,12 +273,3 @@ let movNubeDos = null;
 let movNubeTres = null;
 let movNubeCuatro = null;
 let movNubeCinco = null;
-/*Se utilizo este metodo ya que me resulto mas facil ya que de este modo
-se mantiene la estructura pero solo se modifica el texto */
-const textoPop = document.getElementById(`textPop`);
-let subtitulo = document.createElement(`p`);
-subtitulo.textContent = `Haz click en Iniciar para continuar`;
-textoPop.appendChild(subtitulo);
-let titulo = document.createElement(`h3`);
-titulo.textContent = `Bienvenido ${usuario}`;
-textoPop.appendChild(titulo);
